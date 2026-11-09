@@ -254,7 +254,7 @@ export class ScheduleAiService {
 Implements modern Angular Standalone Component architecture, `ChangeDetectionStrategy.OnPush`, `@if` / `@for` built-in control flow, and Angular Material 3:
 
 ```typescript
-import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -386,7 +386,7 @@ export class SchedulePromptBarComponent {
   protected readonly aiService = inject(ScheduleAiService);
   private readonly snackBar = inject(MatSnackBar);
 
-  readonly userInput = signal<string>('');
+  readonly userInput = model<string>('');
   readonly isCommitting = signal<boolean>(false);
 
   onSubmitPrompt(): void {
@@ -588,7 +588,7 @@ public class PromptSchedulingController {
      * 1. Streaming Prompt Endpoint: Generates proposal via LLM + Tool calling.
      * With spring.threads.virtual.enabled: true, Spring MVC natively dispatches this on a Virtual Thread.
      */
-    @PostMapping(value = "/prompt-stream", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/prompt-stream", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     @PreAuthorize("hasRole('DISPATCHER')")
     public SseEmitter handleSchedulePrompt(@RequestBody @Valid PromptRequest request) {
         SseEmitter emitter = new SseEmitter(60_000L);

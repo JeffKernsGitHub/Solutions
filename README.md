@@ -9,7 +9,9 @@ Welcome to my portfolio of enterprise software solutions, reference architecture
 | Solution / Whitepaper | Business Domain | Core Technologies | Primary Business Problem Solved |
 | :--- | :--- | :--- | :--- |
 | [**Prompt-Driven Scheduling**](./prompt-driven-scheduling.md) | Industrial Maintenance, Heavy Fleet & Logistics | **Angular 19+**, **Java 21 / Spring Boot**, **Spring AI**, **PostgreSQL (`btree_gist`, `pgvector`)** | Eliminates multi-modal dispatcher friction by converting natural language emergency repair requests into deterministic schedules with zero hallucinations and physical double-booking prevention. |
+| [**TaskApp**](https://github.com/JeffKernsGitHub/TaskApp) | Enterprise Task & Workflow Management | **Angular**, **Java / Spring Boot**, **PostgreSQL**, **Docker** | Demonstrates full-stack enterprise architectural patterns for distributed task tracking, state machine workflow orchestration, and resilient transaction management. |
 | [**Legacy Java EE & JBoss CDE Migration**](./legacy-java-ee-jboss-cde-migration.md) | Enterprise DevEx, Remote Workstations, Infrastructure Modernization | **Red Hat JBoss EAP 7.x**, **Java 8 (JDK 8u551)**, **Angular (Node.js 26)**, **Maven**, **Oracle DB (:1521)**, **Coder / DevPod**, **DevContainer** | Solves corporate VPN saturation and sluggish VDI performance by replacing heavy pixel-streaming virtual desktops with decoupled containerized CDEs—cutting WAN bandwidth by 98% and slashing onboarding time from days to minutes. |
+| [**Angular Mastery Curriculum**](https://github.com/JeffKernsGitHub/AngularMasteryCurriculum) | Frontend Architecture & Developer Education | **Modern Angular (Signals)**, **TypeScript**, **Reactive Architecture** | Comprehensive curriculum and reference tutorial developed through disciplined, self-directed research from deep-dive technical notes to master modern Angular paradigms and enterprise frontend design. |
 
 ---
 
@@ -43,7 +45,29 @@ graph LR
 
 ---
 
-### 2. Tabletop Case Study: Migrating Legacy Java EE, JBoss & Angular to a CDE
+### 2. TaskApp: Enterprise Application Demonstration
+> 🔗 **Repository & Demonstration:** [**TaskApp on GitHub**](https://github.com/JeffKernsGitHub/TaskApp)
+
+#### Executive Overview
+**TaskApp** is an enterprise-grade application demonstration engineered to showcase full-stack architecture, resilient operational task tracking, and scalable workflow orchestration. It models real-world enterprise requirements including robust state transition management, decoupled client-server data contracts, and transactional integrity across operational lifecycles.
+
+```mermaid
+graph LR
+    User["Enterprise Operator"] --> UI["🖥️ Client Application<br/>(Responsive Task UI)"]
+    UI --> API["🔌 Secure REST Service Layer<br/>(Validation & Auth)"]
+    API --> Core["⚙️ Domain Workflow Engine<br/>(State Machine & Business Rules)"]
+    Core --> DB["🗄️ Transactional Data Store<br/>(ACID Persistence & Audit Trail)"]
+```
+
+#### Key Architectural Highlights
+* **Deterministic Workflow & State Management:** Models structured task lifecycles with strict state machine validation, preventing invalid transitions and orphaned states.
+* **Clean Layered Architecture:** Decouples client presentation from domain business logic, service boundaries, and data access layers.
+* **Transactional Reliability:** Enforces ACID transactional guarantees on operational updates, ensuring complete auditability and consistency across concurrent edits.
+* **Enterprise-Ready Extensibility:** Modular architecture designed to integrate with enterprise authentication, role-based access control (RBAC), and external notification systems.
+
+---
+
+### 3. Tabletop Case Study: Migrating Legacy Java EE, JBoss & Angular to a CDE
 > 📄 **Full Architecture Document:** [**Migrating Legacy Java EE, JBoss & Angular Stack to a CDE**](./legacy-java-ee-jboss-cde-migration.md)
 
 #### Executive Overview
